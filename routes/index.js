@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   //let data;
 
   db.query(query, (err, result) => {
-    let msg = 'DB connection established!';
+    let msg = 'DB connection established! ' + result.length + ' triggers found.';
 
     if (err) {
       msg = 'There was an error connecting to the DB: ' + err;
