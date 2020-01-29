@@ -7,12 +7,13 @@ router.get('/', function(req, res, next) {
   //let data;
 
   db.query(query, (err, result) => {
+    let msg = 'DB connection established!';
+
     if (err) {
-      console.log("ERROR! " + err)
+      msg = 'There was an error connecting to the DB: ' + err;
     }
 
-    console.log(result);
-    res.render('index', { title: 'Express', data: result[0]['TRIGGER_NAME'] });
+    res.render('index', { title: 'uiQ', msg: msg });
   });
 });
 
